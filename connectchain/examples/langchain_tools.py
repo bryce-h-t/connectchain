@@ -22,7 +22,7 @@ import re
 from dotenv import load_dotenv, find_dotenv
 from langchain.agents import AgentType
 from langchain.agents.agent_toolkits import create_python_agent
-from langchain.chat_models import ChatOpenAI as AzureOpenAI
+from langchain_openai import AzureOpenAI
 from connectchain.tools import ValidPythonREPLTool
 from connectchain.utils import get_token_from_env, Config
 from connectchain.utils.exceptions import OperationNotPermittedException

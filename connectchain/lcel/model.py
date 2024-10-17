@@ -12,8 +12,7 @@
 """ LCEL model module """
 import os
 from typing import Any
-from langchain.chat_models import ChatOpenAI
-from langchain.llms.openai import AzureOpenAI
+from langchain_openai import ChatOpenAI, AzureOpenAI
 from langchain.schema.language_model import BaseLanguageModel
 from connectchain.utils import Config, get_token_from_env, SessionMap
 from connectchain.utils.llm_proxy_wrapper import wrap_llm_with_proxy
