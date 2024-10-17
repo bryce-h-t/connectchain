@@ -19,3 +19,9 @@ dist/
 .pylint
 
 connectchain/config/config.yml
+
+# ignore temporary and configuration files
+check_langchain_classes.py
+config.yml
+explore_langchain.py
+langchain_update_diff.patch

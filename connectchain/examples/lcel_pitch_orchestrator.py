@@ -16,7 +16,7 @@ Example of using LCEL for a more complex chaining. The flow is as follows:
 3. Re-word the recipe by using relevant information from a food description.
 """
 from dotenv import load_dotenv, find_dotenv
-from langchain.schema import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from connectchain.prompts import ValidPromptTemplate
 from connectchain.lcel import model, Logger
 

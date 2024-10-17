@@ -13,7 +13,7 @@
 import os
 import unittest
 from unittest.mock import patch, Mock
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from connectchain.orchestrators import PortableOrchestrator
 from connectchain.prompts import ValidPromptTemplate
 from connectchain.chains import ValidLLMChain

@@ -13,8 +13,8 @@
 import os
 import unittest
 from unittest.mock import patch, Mock
-from langchain.chat_models import ChatOpenAI
-from langchain.llms.openai import AzureOpenAI
+from langchain_openai import ChatOpenAI
+from langchain_openai import AzureOpenAI
 from connectchain.lcel import model, LCELModelException
 
 from .setup_utils import get_mock_config
@@ -49,7 +49,7 @@ class TestModel(unittest.TestCase):
         test_token = os.getenv('TEST_MODEL_ENV')
         self.assertEqual(test_token, 'test_token')
 
-    @patch('connectchain.lcel.model.AzureOpenAI', return_value=Mock(AzureOpenAI))
+    @patch('langchain_openai.AzureOpenAI', return_value=Mock(AzureOpenAI))
     # pylint: disable=unused-argument
     def test_model_with_defined_llm(self, *args):
         self.setUpWithConfig(get_mock_config())

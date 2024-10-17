@@ -20,9 +20,9 @@ Any use of this code is at your own risk.
 #pylint: disable=no-name-in-module
 import re
 from dotenv import load_dotenv, find_dotenv
-from langchain.agents import AgentType
-from langchain.agents.agent_toolkits import create_python_agent
-from langchain.chat_models import ChatOpenAI as AzureOpenAI
+from langchain_community.agents import AgentType
+from langchain_community.agents.agent_toolkits import create_python_agent
+from langchain_openai import AzureOpenAI
 from connectchain.tools import ValidPythonREPLTool
 from connectchain.utils import get_token_from_env, Config
 from connectchain.utils.exceptions import OperationNotPermittedException
@@ -33,14 +33,12 @@ if __name__ == '__main__':
     model_config = Config.from_env().models['1']
 
     llm = AzureOpenAI(
+        deployment_name=model_config.engine,
         model_name=model_config.model_name,
         openai_api_key=auth_token,
-        openai_api_base=model_config.api_base,
-        model_kwargs={
-            "engine": model_config.engine,
-            "api_version": model_config.api_version,
-            "api_type": "azure"
-        })
+        azure_endpoint=model_config.api_base,
+        api_version=model_config.api_version
+    )
 
     def simple_sanitizer(query: str) -> str:
         """Sample sanitizer

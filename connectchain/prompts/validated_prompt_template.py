@@ -15,7 +15,7 @@ It takes an output_sanitizer function as an argument to the constructor.
 This function is called on the output of the format_prompt method for validation.
 """
 #pylint: disable=too-many-ancestors
-from typing import Any, Callable
+from typing import Any, Callable, Optional
 
 from langchain.prompts import PromptTemplate
 from langchain.schema import PromptValue
@@ -23,7 +23,11 @@ from langchain.schema import PromptValue
 
 class ValidPromptTemplate(PromptTemplate):
     """Class to validate Prompt Template"""
-    output_sanitizer: Callable[[str], str] | None
+    output_sanitizer: Optional[Callable[[str], str]] = None
+
+    def __init__(self, *args, output_sanitizer: Optional[Callable[[str], str]] = None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.output_sanitizer = output_sanitizer
 
     # pylint: disable=E1102
     def format_prompt(self, **kwargs: Any) -> PromptValue:

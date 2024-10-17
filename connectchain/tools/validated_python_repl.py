@@ -13,8 +13,8 @@
 #pylint: disable=no-name-in-module too-few-public-methods unused-argument
 import re
 from typing import Any, Callable, Optional
-from langchain.callbacks.manager import CallbackManagerForToolRun
-from langchain.tools import PythonREPLTool
+from langchain_core.callbacks.manager import CallbackManagerForToolRun
+from langchain_community.tools import PythonREPLTool
 
 
 def default_sanitize_input(query: str) -> str:
