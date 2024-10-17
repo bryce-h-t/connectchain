@@ -13,7 +13,7 @@
 Example of using LCEL with multiple models.
 """
 from dotenv import load_dotenv, find_dotenv
-from langchain.schema import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from connectchain.prompts import ValidPromptTemplate
 from connectchain.lcel import model, Logger
 

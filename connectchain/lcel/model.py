@@ -13,7 +13,7 @@
 import os
 from typing import Any
 from langchain_openai import ChatOpenAI, AzureOpenAI
-from langchain.schema.language_model import BaseLanguageModel
+from langchain.base_language import BaseLanguageModel
 from connectchain.utils import Config, get_token_from_env, SessionMap
 from connectchain.utils.llm_proxy_wrapper import wrap_llm_with_proxy
 
@@ -90,13 +90,10 @@ def _get_chat_model_(auth_token, model_config):
 def _get_azure_model_(auth_token, model_config):
     """Get an AzureOpenAI instance"""
     llm = AzureOpenAI(
+        deployment_name=model_config.engine,
         model_name=model_config.model_name,
         openai_api_key=auth_token,
-        openai_api_base=model_config.api_base,
-        openai_api_version=model_config.api_version,
-        model_kwargs={
-            "engine": model_config.engine,
-            "api_version": model_config.api_version,
-            "api_type": "azure"
-        })
+        azure_endpoint=model_config.api_base,
+        api_version=model_config.api_version,
+    )
     return llm

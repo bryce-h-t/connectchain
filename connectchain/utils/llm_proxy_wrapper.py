@@ -12,7 +12,7 @@
 """Proxied LLM Utilities"""
 import functools
 from .proxy_manager import ProxyManager, ProxyConfig
-from langchain.llms import BaseLLM
+from langchain.schema.language_model import BaseLanguageModel as BaseLLM
 
 _llm_sync_methods_ = [
     'invoke',

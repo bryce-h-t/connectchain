@@ -17,7 +17,7 @@ Example of using LCEL for a tree of thoughts. The flow is as follows:
 4. Evaluate each solution considering resources, difficulties, cost, time, risks and mitigations. Pick the best one only
 """
 from dotenv import load_dotenv, find_dotenv
-from langchain.schema import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from operator import itemgetter
 from connectchain.prompts import ValidPromptTemplate
 from connectchain.lcel import model, Logger

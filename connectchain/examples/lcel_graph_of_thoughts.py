@@ -29,7 +29,7 @@ The flow is as follows:
 5. Refine the titles to make them more tones, based on the evaluation in step 4.
 """
 from dotenv import load_dotenv, find_dotenv
-from langchain.schema import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from operator import itemgetter
 from connectchain.prompts import ValidPromptTemplate
 from connectchain.lcel import model, Logger

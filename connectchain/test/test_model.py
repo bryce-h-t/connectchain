@@ -13,7 +13,7 @@
 import os
 import unittest
 from unittest.mock import patch, Mock
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_openai import AzureOpenAI
 from connectchain.lcel import model, LCELModelException
 

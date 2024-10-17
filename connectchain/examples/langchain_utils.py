@@ -19,11 +19,11 @@ Any use of this code is at your own risk.
 """
 # pylint: disable=no-name-in-module
 from dotenv import load_dotenv, find_dotenv
-from langchain.agents import AgentType
-from langchain.agents.agent_toolkits import create_python_agent
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
-from langchain.tools import PythonREPLTool
+from langchain_community.agents import AgentType
+from langchain_community.agents.agent_toolkits import create_python_agent
+from langchain_core.chains import LLMChain
+from langchain_core.prompts import PromptTemplate
+from langchain_community.tools import PythonREPLTool
 from connectchain.lcel import model
 
 # pylint: disable=duplicate-code

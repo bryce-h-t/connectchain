@@ -13,8 +13,8 @@
 from unittest import TestCase
 from unittest.mock import patch
 from langchain.chains import LLMChain
-from langchain.llms.openai import OpenAIChat
-from langchain.prompts import PromptTemplate
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
 from connectchain.chains import ValidLLMChain
 from connectchain.utils.exceptions import OperationNotPermittedException
 
@@ -36,12 +36,11 @@ class TestValidLLMChain(TestCase):
             input_variables=["rare_bird_type"], template=prompt_template
         )
 
-        # create mock OpenAIChat instance
-        llm = OpenAIChat(
-            engine='gpt-35',
+        # create mock ChatOpenAI instance
+        llm = ChatOpenAI(
             model_name='gpt-35-turbo',
             openai_api_key="12345",
-            openai_api_base="stub")
+            azure_endpoint="stub")
 
         chain = ValidLLMChain(llm=llm, prompt=prompt, output_sanitizer=my_sanitizer)
         # patch LLMChain.run() using with patch.object

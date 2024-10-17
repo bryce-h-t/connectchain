@@ -14,7 +14,7 @@ This module contains the ValidLLMChain class, which is a subclass of LLMChain.
 In addition, it has a callback for sanitizing the output
 """
 from typing import Callable, Optional, Any, Dict, List
-from langchain.callbacks.base import Callbacks
+from langchain_core.callbacks import Callbacks
 from langchain.chains import LLMChain
 
 

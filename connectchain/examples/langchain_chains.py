@@ -20,7 +20,7 @@ Any use of this code is at your own risk.
 """
 
 from dotenv import load_dotenv, find_dotenv
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from connectchain.chains import ValidLLMChain
 from connectchain.lcel import model
 from connectchain.utils.exceptions import OperationNotPermittedException
